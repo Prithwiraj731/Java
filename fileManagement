@@ -1,0 +1,21 @@
+import java.io.*;
+class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter fw = new FileWriter("shoes.txt");
+            fw.write("Nike Air Force 1\nAdidas Ultraboost\nPuma RS-X");
+            fw.close();
+            System.out.println("File written successfully!");
+            BufferedReader br = new BufferedReader(new FileReader("shoes.txt"));
+            System.out.println("\n--- Shoe Collection ---");
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
