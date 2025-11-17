@@ -86,8 +86,8 @@ java SmartMartSystem
 
 ## 📝 Sample bill.txt Output
 
-SMARTMART FINAL BILL
----------------------
-Milk
-Bread
-Butter
+## SMARTMART FINAL BILL
+## ---------------------
+## Milk
+## Bread
+## Butter
