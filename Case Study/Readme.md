@@ -1,7 +1,6 @@
 # 🛒 SmartMart — Automated Supermarket System (Java Collection Framework Project)
 
 A complete real-world supermarket simulation built using **Java Collection Framework**, **Generics**, **File Handling**, and various Java utility classes.  
-This project is a **God-Level Case Study** designed to demonstrate mastery over every concept from the Java Collections chapter.
 
 ---
 
