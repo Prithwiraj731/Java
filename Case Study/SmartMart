@@ -1,0 +1,116 @@
+import java.util.*;
+import java.io.*;
+class Product<T, U, V> {
+    T id;
+    U name;
+    V price;
+
+    Product(T id, U name, V price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + id + " | " + name + " | ₹" + price + "]";
+    }
+}
+
+public class SmartMartSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        // 1. CUSTOMER REGISTRATION
+        ArrayList<String> customers = new ArrayList<>();
+
+        System.out.println("Enter 5 customer names:");
+        for (int i = 0; i < 5; i++) {
+            customers.add(sc.nextLine());
+        }
+
+        HashSet<String> uniqueCustomers = new HashSet<>(customers);
+        System.out.println("\nUnique Customers (Removed Duplicates):");
+        System.out.println(uniqueCustomers);
+
+        // 2. PRODUCT INVENTORY
+
+        Hashtable<Integer, Product<Integer, String, Double>> inventory =
+                new Hashtable<>();
+
+        inventory.put(101, new Product<>(101, "Milk", 55.0));
+        inventory.put(102, new Product<>(102, "Bread", 40.0));
+        inventory.put(103, new Product<>(103, "Butter", 90.0));
+
+        System.out.println("\nProduct Inventory (Hashtable):");
+        for (Integer key : inventory.keySet()) {
+            System.out.println(key + " -> " + inventory.get(key));
+        }
+
+        // 3. SHOPPING CART (Vector + Enumeration)
+        Vector<String> cart = new Vector<>();
+        cart.add("Milk");
+        cart.add("Bread");
+        cart.add("Eggs");
+
+        System.out.println("\nShopping Cart Items (Enumeration):");
+        Enumeration<String> e = cart.elements();
+        while (e.hasMoreElements()) {
+            System.out.println(e.nextElement());
+        }
+
+        // 4. BILL STACK (Stack + Iterator)
+
+        Stack<String> billStack = new Stack<>();
+        billStack.push("Milk");
+        billStack.push("Bread");
+        billStack.push("Butter");
+
+        System.out.println("\nBill Stack (Before correction): " + billStack);
+
+        System.out.println("Removed Mistaken Item: " + billStack.pop());
+
+        System.out.println("Final Bill Items (Iterator):");
+        Iterator<String> itr = billStack.iterator();
+        while (itr.hasNext()) {
+            System.out.println(itr.next());
+        }
+
+        // 5. COUPON SYSTEM
+        String couponCSV = "SAVE10,SAVE20,FEST50";
+        System.out.println("\nAvailable Coupons:");
+        StringTokenizer st = new StringTokenizer(couponCSV, ",");
+        while (st.hasMoreTokens()) {
+            System.out.println(st.nextToken());
+        }
+
+        // 6. OTP SYSTEM
+
+        int otp = (int) (Math.random() * 900000 + 100000);
+        System.out.println("\nOTP for Payment: " + otp);
+
+        // 7. FILE MANAGEMENT
+        try {
+            FileWriter fw = new FileWriter("bill.txt");
+            fw.write("SMARTMART FINAL BILL\n---------------------\n");
+            for (String item : billStack) fw.write(item + "\n");
+            fw.close();
+
+            System.out.println("\nBill written successfully to bill.txt!");
+
+            BufferedReader br = new BufferedReader(new FileReader("bill.txt"));
+            String line;
+            System.out.println("\n BILL CONTENT");
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+
+        } catch (IOException ex) {
+            System.out.println("File Error: " + ex.getMessage());
+        }
+
+        sc.close();
+    }
+}
