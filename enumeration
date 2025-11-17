@@ -1,0 +1,17 @@
+import java.util.Vector;
+import java.util.Enumeration;
+public class LibraryBooks {
+    public static void main(String[] args) {
+        Vector<String> books = new Vector<>();
+        books.add("Harry Potter");
+        books.add("The Hobbit");
+        books.add("Pride and Prejudice");
+        books.add("To Kill a Mockingbird");
+        Enumeration<String> bookList = books.elements();
+
+        System.out.println("List of Available Books:");
+        while (bookList.hasMoreElements()) {
+            System.out.println("- " + bookList.nextElement());
+        }
+    }
+}
