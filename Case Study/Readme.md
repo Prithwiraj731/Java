@@ -2,7 +2,7 @@
 
 A complete real-world supermarket simulation built using **Java Collection Framework**, **Generics**, **File Handling**, and various Java utility classes.  
 
----
+--
 
 ## ⭐ Project Overview
 
