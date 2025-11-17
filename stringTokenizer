@@ -1,0 +1,12 @@
+import java.util.*;
+
+class StringTokenizerExample {
+    public static void main(String[] args) {
+        String sentence = "Apple, Banana, Cherry";
+        StringTokenizer st = new StringTokenizer(sentence, ",");
+
+        while (st.hasMoreTokens()) {
+            System.out.println(st.nextToken().trim());
+        }
+    }
+}
